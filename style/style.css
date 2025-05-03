@@ -1,0 +1,74 @@
+:root {
+    --bgColor: #010001;
+    --textColor: #E6E8EA;
+    --borderColor: #3d4147;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: var(--textColor);
+    font-family: Consolas, 'Courier New', monospace;
+}
+
+body {
+    background-color: var(--bgColor);
+}
+
+.center {
+    width: fit-content;
+    margin: auto;
+    display: flex;
+}
+
+nav a {
+    display: block;
+}
+
+main {
+    width: 500px;
+}
+
+.project {
+    margin: 20px;
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+}
+
+.project h1 {
+    margin: 10px 15px 0;
+}
+
+.project .stack {
+    display: flex;
+    margin: 5px 10px 10px;
+}
+
+.stack p {
+    margin: 5px !important;
+    padding: 4px 7px;
+    font-size: small !important;
+    border: 1px solid var(--borderColor);
+    border-radius: 2em;
+}
+
+.project img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.project p {
+    margin: 5px 15px 15px;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.project button {
+    background-color: transparent;
+    padding: 10px;
+    margin: 0 0 15px 15px;
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+}
