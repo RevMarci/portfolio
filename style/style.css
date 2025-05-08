@@ -2,6 +2,7 @@
     --bgColor: #010001;
     --textColor: #E6E8EA;
     --borderColor: #3d4147;
+    --hoverColor: #3399ff;
 }
 
 * {
@@ -16,14 +17,51 @@ body {
     background-color: var(--bgColor);
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    transition: 0.2s;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--borderColor);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+
 .center {
     width: fit-content;
     margin: auto;
     display: flex;
 }
 
+nav, aside {
+    margin: 0 20px;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+}
+
 nav a {
     display: block;
+    font-size: large;
+    text-decoration: none;
+    padding: 10px;
+    border-left: 1px solid var(--borderColor);
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: var(--hoverColor);
+    padding-left: 15px;
+    padding-right: 5px;
+    border-color: var(--hoverColor);
 }
 
 main {
@@ -71,4 +109,82 @@ main {
     margin: 0 0 15px 15px;
     border: 1px solid var(--borderColor);
     border-radius: 5px;
+}
+
+.chat-wrapper {
+    border: 1px solid var(--borderColor);
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+    height: calc(100vh - 96px);
+    width: 300px;
+}
+
+#chat {
+    max-height: calc(100% - 96px);
+    overflow-y: auto;
+    position: absolute;
+    bottom: 75px;
+    width: calc(100% - 2px);
+}
+
+#chat .ai, #chat .user {
+    margin: 10px;
+    padding: 5px;
+    width: 80%;
+}
+
+#chat p {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+#chat .ai {
+    text-align: left;
+    border: 1px solid var(--hoverColor);
+    border-radius: 7px 7px 7px 0;
+}
+
+#chat .user {
+    margin-left: 12%;
+    text-align: right;
+    border: 1px solid var(--borderColor);
+    border-radius: 7px 7px 0 7px;
+}
+
+aside .chat-input-area {
+    width: 286px;
+    height: 40px;
+    padding: 7px;
+    border: 1px solid var(--borderColor);
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+} 
+
+.chat-input-area form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-input-area form input {
+    width: 73%;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid var(--borderColor);
+    border-radius: 3px;
+}
+
+.chat-input-area form button {
+    width: 20%;
+    background-color: transparent;
+    border: 1px solid var(--borderColor);
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+.chat-input-area form button:hover {
+    border-color: var(--hoverColor);
+    color: var(--hoverColor);
+    cursor: pointer;
 }
