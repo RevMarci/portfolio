@@ -3,20 +3,24 @@ import { getAiAnswer } from './services/ai.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors({
+  origin: 'https://revmarci.github.io'
+}));
+
+app.use(express.json());
+
 // ESModules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Static files
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.json());
-
+// API endpoint
 app.post('/ask', async (req, res) => {
     const { question } = req.body;
 
