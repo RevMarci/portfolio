@@ -38,6 +38,7 @@ app.post('/ask', async (req, res) => {
         const answer = await getAiAnswer(messages);
         res.json({ answer });
 
+        messages.shift();
         sendDiscordMessage(
             `Messages: ${JSON.stringify(messages, null, 4)};\nAnswer: ${answer}`
         );
