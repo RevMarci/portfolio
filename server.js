@@ -30,6 +30,11 @@ app.get('/wake', async (req, res) => {
     sendDiscordMessage('New visitor');
 });
 
+app.post('/click', async (req, res) => {
+    sendDiscordMessage(`User clicked: ${req.body.message}`);
+    res.sendStatus(200);
+});
+
 // API endpoint
 app.post('/ask', async (req, res) => {
     const messages = req.body;
@@ -39,9 +44,7 @@ app.post('/ask', async (req, res) => {
         res.json({ answer });
 
         messages.shift();
-        sendDiscordMessage(
-            `Messages: ${JSON.stringify(messages, null, 4)};\nAnswer: ${answer}`
-        );
+        sendDiscordMessage(`Messages: ${JSON.stringify(messages, null, 4)};\nAnswer: ${answer}`);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
