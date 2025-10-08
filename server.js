@@ -46,6 +46,7 @@ app.post('/ask', async (req, res) => {
         messages.shift();
         sendDiscordMessage(`Messages: ${JSON.stringify(messages, null, 4)};\nAnswer: ${answer}`);
     } catch (error) {
+        sendDiscordMessage(`OpenRouter hiba: ${error}`);
         res.status(500).json({ error: error.message });
     }
 });
