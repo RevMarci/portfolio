@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
     cors({
-        origin: 'https://revmarci.github.io',
+        origin: 'https://marton-revesz.vercel.app/',
     })
 );
 
